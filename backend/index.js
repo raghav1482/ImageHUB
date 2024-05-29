@@ -33,6 +33,6 @@ app.get("/", (req, res) => {
 app.use("/auth",auth);
 app.use("/image",imageroute);
 
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server Running at PORT 8000");
 });
