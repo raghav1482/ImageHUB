@@ -26,11 +26,11 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route exact path={`/` } element={<Home srv='http://localhost:8000'/>}></Route>
-          <Route path={`/login` } element={<Login srv='http://localhost:8000'/>}></Route>
-          <Route path={`/signup` } element={<Signup srv='http://localhost:8000'/>}></Route>
-          <Route path={`/gallery` } element={<Gallery srv='http://localhost:8000'/>}></Route>
-          <Route path={`/upload` } element={<Upload srv='http://localhost:8000'/>}></Route>
+          <Route exact path={`/` } element={<Home srv='https://imagehub-s7uw.onrender.com'/>}></Route>
+          <Route path={`/login` } element={<Login srv='https://imagehub-s7uw.onrender.com'/>}></Route>
+          <Route path={`/signup` } element={<Signup srv='https://imagehub-s7uw.onrender.com'/>}></Route>
+          <Route path={`/gallery` } element={<Gallery srv='https://imagehub-s7uw.onrender.com'/>}></Route>
+          <Route path={`/upload` } element={<Upload srv='https://imagehub-s7uw.onrender.com'/>}></Route>
         </Routes>
         <Footer/>
       </Router>
