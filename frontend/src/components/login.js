@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/form.css';  // Import the CSS file
+import '../styles/form.css';  
 import axios from "axios"
-import { useAuth } from '../authContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, selectLoginStatus } from '../redux/authSlice';
+
+
 const Login = (props) => {
   const [user, setUser] = useState({ email: '', password: '' });
   const [loading , setLoad] = useState(false);
   const nav = useNavigate();
-  const { login } = useAuth();
+  const loginStatus = useSelector(selectLoginStatus);
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(login());
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   const handleChange = (e) => {
     setUser((prev) => ({
@@ -24,7 +36,7 @@ const Login = (props) => {
         const usrdat = JSON.stringify(result.data);
         sessionStorage.setItem("User",usrdat);
         setLoad(false);
-        login()
+        handleLogin()
         nav("/");
       }).catch(e=>{alert("Error logging in"); console.log(e);setLoad(false);});
     };

@@ -1,8 +1,18 @@
 import React from 'react';
-import { useAuth } from '../authContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { login, logout, selectLoginStatus } from '../redux/authSlice';
 
 const Navbar = () => {
-  const {loginStatus,login,logout} = useAuth();
+  const loginStatus = useSelector(selectLoginStatus);
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(login());
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
   <a class="navbar-brand" href="/">ImageHUB</a>
@@ -21,7 +31,7 @@ const Navbar = () => {
         <a class="nav-link" href="/login">Login/SignUP</a>
       </li>}
 {    loginStatus &&  <li class="nav-item">
-        <a class="nav-link" href="/" onClick={()=>{logout();sessionStorage.clear()}}>Logout</a>
+        <a class="nav-link" href="/" onClick={()=>{handleLogout();sessionStorage.clear()}}>Logout</a>
       </li>}
     </ul>
   </div>
