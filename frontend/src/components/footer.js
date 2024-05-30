@@ -3,7 +3,7 @@ import '../styles/footer.css';
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className='footer' style={{marginTop:"200px"}}>
       <h4>ImageHUB</h4>
       <div className='footer-content'>
         <div className='footer-links'>

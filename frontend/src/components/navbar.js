@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { login, logout, selectLoginStatus } from '../redux/authSlice';
+import { login, logout, selectImgArr, selectLoginStatus } from '../redux/authSlice';
 
 const Navbar = () => {
   const loginStatus = useSelector(selectLoginStatus);
+  const imgarr = useSelector(selectImgArr);
   const dispatch = useDispatch();
-
   const handleLogin = () => {
     dispatch(login());
   };

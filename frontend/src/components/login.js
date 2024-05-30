@@ -38,7 +38,7 @@ const Login = (props) => {
         setLoad(false);
         handleLogin()
         nav("/");
-      }).catch(e=>{alert("Error logging in"); console.log(e);setLoad(false);});
+      }).catch(e=>{alert(e.response.data.message); console.log(e);setLoad(false);});
     };
 
   return (

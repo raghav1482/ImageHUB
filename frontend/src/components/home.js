@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './navbar'
 import  "../styles/home.css"
 import ImageCard from './imagecard'
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchImages, login, logout, selectImgArr, selectLoginStatus } from '../redux/authSlice';
 import axios from "axios"
 const Home = (props) => {
   const imagearr = [
@@ -37,19 +39,11 @@ const Home = (props) => {
     }
   ]
   
-  const [imgarr, setImgs] = useState([]);
-  const fetchImages = async () => {
-    try {
-      const result = await axios.get(`${props.srv}/image/getimages`);
-      setImgs(result.data);
-    } catch (e) {
-      alert('Error fetching images');
-      console.log(e);
-    }
-  };
+  const imgarr = useSelector(selectImgArr);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchImages();
+    dispatch(fetchImages());
   }, []);
 
   return (

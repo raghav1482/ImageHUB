@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ImageCard from './imagecard';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchImages, login, logout, selectImgArr,selectLoading,setLoading, selectLoginStatus } from '../redux/authSlice';
 import "../styles/images.css"
 
 const Gallery = (props) => {
-  const [imgarr, setImgs] = useState([]);
+  
   const [refresh, setRefresh] = useState(false);
-  const fetchImages = async () => {
-    try {
-      const result = await axios.get(`${props.srv}/image/getimages`);
-      setImgs(result.data);
-    } catch (e) {
-      alert('Error fetching images');
-      console.log(e);
-    }
-  };
-
+  const imgarr = useSelector(selectImgArr);
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
   useEffect(() => {
-    fetchImages();
+    dispatch(fetchImages());
   }, [refresh]);
 
 
@@ -32,7 +27,7 @@ const Gallery = (props) => {
             <ImageCard key={index} srv={props.srv} id={img._id} title={img.title} views={img.views} url={'https://res.cloudinary.com/dbtis6lsu/image/upload/v1710160772/'+img.url} desc={img.description || `Image ${index + 1}`}/>
           ))
         ) : (
-          <p>No images available</p>
+          <p>{(loading==true)?<span class="loader"></span>:'No images available'}</p>
         )}
       </div>
       </div>
