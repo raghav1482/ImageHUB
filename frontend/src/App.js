@@ -32,11 +32,11 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route exact path={`/` } element={<Home srv='https://imagehub-s7uw.onrender.com'/>}></Route>
-          <Route path={`/login` } element={<Login srv='https://imagehub-s7uw.onrender.com'/>}></Route>
-          <Route path={`/signup` } element={<Signup srv='https://imagehub-s7uw.onrender.com'/>}></Route>
-          <Route path={`/gallery` } element={<Gallery srv='https://imagehub-s7uw.onrender.com'/>}></Route>
-          <Route path={`/upload` } element={<Upload srv='https://imagehub-s7uw.onrender.com'/>}></Route>
+          <Route exact path={`/` } element={<Home srv='https://image-hub-pszo.vercel.app'/>}></Route>
+          <Route path={`/login` } element={<Login srv='https://image-hub-pszo.vercel.app'/>}></Route>
+          <Route path={`/signup` } element={<Signup srv='https://image-hub-pszo.vercel.app'/>}></Route>
+          <Route path={`/gallery` } element={<Gallery srv='https://image-hub-pszo.vercel.app'/>}></Route>
+          <Route path={`/upload` } element={<Upload srv='https://image-hub-pszo.vercel.app'/>}></Route>
         </Routes>
         <Footer/>
       </Router>
