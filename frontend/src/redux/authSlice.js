@@ -34,7 +34,7 @@ export const { login, logout, setImageArr, setLoading, setError } = authSlice.ac
 export const fetchImages = () => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-    const response = await axios.get(`https://imagehub-s7uw.onrender.com/image/getimages`);
+    const response = await axios.get(`https://image-hub-pszo.vercel.app/image/getimages`);
     dispatch(setImageArr(response.data));
     dispatch(setLoading(false));
   } catch (error) {
